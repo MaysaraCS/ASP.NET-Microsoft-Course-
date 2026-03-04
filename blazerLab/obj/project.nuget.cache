@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "xbic2ERBy30=",
+  "success": true,
+  "projectFilePath": "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\blazerLab\\blazerLab.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.3\\microsoft.aspnetcore.authorization.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.3\\microsoft.aspnetcore.components.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\9.0.3\\microsoft.aspnetcore.components.analyzers.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\9.0.3\\microsoft.aspnetcore.components.forms.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.aspnetcore.components.web\\9.0.3\\microsoft.aspnetcore.components.web.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.aspnetcore.metadata\\9.0.3\\microsoft.aspnetcore.metadata.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.3\\microsoft.extensions.dependencyinjection.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.3\\microsoft.extensions.dependencyinjection.abstractions.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.3\\microsoft.extensions.logging.abstractions.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.extensions.options\\9.0.3\\microsoft.extensions.options.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.3\\microsoft.extensions.primitives.9.0.3.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.jsinterop\\9.0.3\\microsoft.jsinterop.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,46 @@
+@using Microsoft.AspNetCore.Components.Web
+@namespace SampleMVCDemo.Components
+@using Microsoft.AspNetCore.Components
+@using SampleMVCDemo.Components
+
+<div class="user-card">
+    <h3>@Name</h3>
+    <p>@Email</p>
+    <p>Role: @Role</p>
+
+    <button type="button" @onclick="ToggleDetails">
+        @(ShowDetails ? "Hide Details" : "Show Details")
+    </button>
+    @if (ShowDetails)
+    {
+        <div class="user-details">
+            <p>Department: @Department</p>
+            <p>Joined: @JoinedDate.ToString("MMM yyyy")</p>
+        </div>
+    }
+</div>
+@* the logic is here *@
+
+@code {
+    [Parameter]
+    public string Name { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Email { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Role { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Department { get; set; } = string.Empty;
+
+    [Parameter]
+    public DateTime JoinedDate { get; set; } = DateTime.Now;
+
+    private bool ShowDetails;
+
+    private void ToggleDetails()
+    {
+        ShowDetails = !ShowDetails;
+    }
+}
