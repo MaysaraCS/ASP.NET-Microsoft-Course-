@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\TaskLab.csproj": {}
+    "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\TaskLab.csproj": {}
   },
   "projects": {
-    "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\TaskLab.csproj": {
+    "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\TaskLab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\TaskLab.csproj",
+        "projectUniqueName": "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\TaskLab.csproj",
         "projectName": "TaskLab",
-        "projectPath": "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\TaskLab.csproj",
+        "projectPath": "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\TaskLab.csproj",
         "packagesPath": "C:\\Users\\maysa\\.nuget\\packages\\",
-        "outputPath": "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\obj\\",
+        "outputPath": "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\TaskLab\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\OtherPrograms\\VisualStudio\\VisualStudioSharedComponents\\NuGetPackages"

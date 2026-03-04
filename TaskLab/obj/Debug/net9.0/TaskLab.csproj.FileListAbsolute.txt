@@ -151,3 +151,4 @@ D:\JOBS-2026\PlanB\ASP_Course\Labs\TaskLab\obj\Debug\net9.0\refint\TaskLab.dll
 D:\JOBS-2026\PlanB\ASP_Course\Labs\TaskLab\obj\Debug\net9.0\TaskLab.pdb
 D:\JOBS-2026\PlanB\ASP_Course\Labs\TaskLab\obj\Debug\net9.0\TaskLab.genruntimeconfig.cache
 D:\JOBS-2026\PlanB\ASP_Course\Labs\TaskLab\obj\Debug\net9.0\ref\TaskLab.dll
+d:\JOBS-2026\PlanB\ASP_Course\Labs\TaskLab\obj\Debug\net9.0\TaskLab.sourcelink.json

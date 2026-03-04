@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\BlazorDemo.csproj": {}
+    "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\BlazorDemo.csproj": {}
   },
   "projects": {
-    "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\BlazorDemo.csproj": {
+    "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\BlazorDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\BlazorDemo.csproj",
+        "projectUniqueName": "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\BlazorDemo.csproj",
         "projectName": "BlazorDemo",
-        "projectPath": "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\BlazorDemo.csproj",
+        "projectPath": "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\BlazorDemo.csproj",
         "packagesPath": "C:\\Users\\maysa\\.nuget\\packages\\",
-        "outputPath": "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\obj\\",
+        "outputPath": "d:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\BlazorDemo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\OtherPrograms\\VisualStudio\\VisualStudioSharedComponents\\NuGetPackages"
