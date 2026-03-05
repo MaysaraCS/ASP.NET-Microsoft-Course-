@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("blazerLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8b20ba94d4aa3fbcde817097fc05e7aea4745cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0dd741f0719cc0a536081f5b86fa5beea43826a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("blazerLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("blazerLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
