@@ -12,9 +12,22 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+    [HttpGet]
+    public IActionResult GetUserData()
+    {
+        var userData = new
+        {
+            Name = "John Doe",
+            Email = "john.doe@example.com",
+            LastLogin = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+        return Json(userData);
+    }
 
     public IActionResult Index()
     {
+        ViewBag.UserName = "John Doe";
+        ViewBag.UserSettings = new { Theme = "dark", Language = "en" };
         return View();
     }
 

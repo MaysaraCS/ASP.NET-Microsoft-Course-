@@ -2,3 +2,11 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+$(document).ready(function () {
+    console.log("jQuery is ready!");
+    // Example: Show an alert when a button is clicked
+    $('button').click(function () {
+        $(this).addClass("Button was clicked!");
+    });
+});
