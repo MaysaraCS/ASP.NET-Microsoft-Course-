@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "INO0H/kAffY=",
+  "success": true,
+  "projectFilePath": "D:\\JOBS-2026\\PlanB\\ASP_Course\\Labs\\reactLab\\reactLab.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.14\\microsoft.aspnetcore.openapi.9.0.14.nupkg.sha512",
+    "C:\\Users\\maysa\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

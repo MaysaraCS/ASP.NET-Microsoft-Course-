@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JqueryLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d7b1e00438bc3fe86ac86256f916bcf8da3cb21")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70f338b9a68b69897a325483ccbc2cee33fa7182")]
 [assembly: System.Reflection.AssemblyProductAttribute("JqueryLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JqueryLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
