@@ -2,12 +2,23 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import Dashboard from './components/Dashboard';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <Router>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/dashboard">Dashboard</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<div><h1>Welcome to the Home Page</h1></div>} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
