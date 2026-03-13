@@ -3,71 +3,92 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BootStrapLab</title>
+    <title>@ViewData["Title"] - TechFlow Solutions</title>
+
+    @* {{!-- STEP 1: Load Bootstrap 5 CSS from CDN (single source, no duplicates) --}} *@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BootStrapLab.styles.css" asp-append-version="true" />
 </head>
 
 <body>
     <header>
+        @* {{!-- STEP 2: Main navbar with dark theme and primary background --}}
+        {{!-- navbar-expand-lg = collapses into hamburger menu on screens smaller than lg (992px) --}}
+        {{!-- navbar-dark = makes text/icons white, suitable for dark/colored backgrounds --}}
+        {{!-- bg-primary = applies Bootstrap's primary blue background color --}} *@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">My asp.NET app</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+                @* {{!-- STEP 3: Company brand/logo text on the left --}} *@
+                <a class="navbar-brand fw-bold" href="#">TechFlow Solutions</a>
+
+                @* {{!-- STEP 4: Hamburger toggle button for mobile screens --}}
+                {{!-- data-bs-toggle="collapse" tells Bootstrap this button controls a collapsible element --}}
+                {{!-- data-bs-target="#mainNavbar" links the button to the nav menu by matching its id --}}
+                {{!-- aria-controls, aria-expanded, aria-label = accessibility attributes --}} *@
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+
+                @* {{!-- STEP 5: Collapsible nav content — hidden on mobile, visible on lg+ --}}
+                {{!-- The id "mainNavbar" must match the data-bs-target on the button above --}} *@
+                <div class="collapse navbar-collapse" id="mainNavbar">
+
+                    @* {{!-- STEP 6: Nav links aligned to the RIGHT using ms-auto (margin-start: auto) --}} *@
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        @* {{!-- STEP 7: Each nav item — "active" highlights the current page --}} *@
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home"
+                               asp-action="Index">Home</a>
                         </li>
+
+                        @* {{!-- STEP 8: About link --}} *@
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
+
+                        @* {{!-- STEP 9: Services link --}} *@
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#">Services</a>
                         </li>
+
+                        @* {{!-- STEP 10: Contact link --}} *@
+                        <!-- Replace the static href="#" Contact link with a proper route -->
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
+
                     </ul>
                 </div>
+                @* {{!-- END collapsible nav content --}} *@
+
             </div>
         </nav>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BootStrapLab</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
-                               asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        @* {{!-- END main navbar --}} *@
+
     </header>
-    <div class="container">
+
+    @* {{!-- STEP 11: Main page content area — @RenderBody() injects each page's content here --}} *@
+    <div class="container mt-4">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - BootStrapLab - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    @* {{!-- STEP 12: Footer --}} *@
+    <footer class="border-top footer text-muted mt-5">
+        <div class="container py-3">
+            &copy; 2026 - TechFlow Solutions - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    @* {{!-- STEP 13: Scripts at the bottom for faster page load --}}
+    {{!-- jQuery first, then Bootstrap JS bundle (includes Popper.js for dropdowns/tooltips) --}} *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigsz/R+8p3+cb+PNI"

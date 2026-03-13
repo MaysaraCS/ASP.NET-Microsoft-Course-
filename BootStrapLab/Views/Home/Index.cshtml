@@ -2,25 +2,144 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center mb-5">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@* {{!-- ================================================
+     STEP 1: HERO SECTION
+     - Full-width banner with centered text and CTA button
+     - bg-primary gives it the blue background matching the navbar
+     - text-white makes all text readable on the dark background
+     - py-5 adds generous vertical padding top and bottom
+================================================ --}} *@
+<section class="bg-primary text-white py-5 mb-5">
+    <div class="container text-center">
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card h-100">
-                <div class="card-header">
-                    <h5 class="card-title">Card Title</h5>
+        @* {{!-- STEP 2: Hero headline — display-4 is Bootstrap's large heading utility --}} *@
+        <h1 class="display-4 fw-bold mb-3">Welcome to TechFlow Solutions</h1>
+
+        @* {{!-- STEP 3: Supporting subtitle — lead makes paragraph text slightly larger --}} *@
+        <p class="lead mb-4">
+            We build modern, scalable software solutions that help your business grow.
+            From web applications to cloud infrastructure — we've got you covered.
+        </p>
+
+        @* {{!-- STEP 4: Call-to-action buttons
+             - btn-light = white button that stands out on the blue background
+             - btn-outline-light = outlined ghost button as a secondary action
+             - me-3 = margin-end (right spacing) between the two buttons --}} *@
+        <a href="#services" class="btn btn-light btn-lg me-3">Our Services</a>
+        <a href="#" class="btn btn-outline-light btn-lg">Contact Us</a>
+
+    </div>
+</section>
+@* {{!-- END Hero Section --}}
+
+
+{{!-- ================================================
+     STEP 5: SERVICES SECTION
+     - id="services" allows the hero CTA button to scroll here
+     - mb-5 adds bottom margin to space it from any content below
+================================================ --}} *@
+<section id="services" class="container mb-5">
+
+    @* {{!-- STEP 6: Section heading — centered above the card grid --}} *@
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">What We Offer</h2>
+        <p class="text-muted">Explore our core services designed to accelerate your business.</p>
+    </div>
+
+    @* {{!-- STEP 7: Bootstrap GRID ROW
+         - row wraps all columns and handles gutters between cards
+         - g-4 adds consistent gap (gutter) between cards horizontally and vertically --}} *@
+    <div class="row g-4">
+
+        @* {{!-- ============================================
+             STEP 8: SERVICE CARD 1 — Web Development
+             Column sizing:
+               col-lg-4 = 3 cards per row on large screens (≥992px)
+               col-md-6 = 2 cards per row on medium screens (≥768px)
+               col-sm-12 = 1 card per row on small screens (<768px)
+        ============================================ --}} *@
+        <div class="col-lg-4 col-md-6 col-sm-12">
+
+            @* {{!-- h-100 ensures all cards stretch to equal height within the row --}} *@
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center p-4">
+
+                    @* {{!-- STEP 9: Icon placeholder using Bootstrap's display utility --}} *@
+                    <div class="display-4 mb-3">🌐</div>
+
+                    @* {{!-- STEP 10: Card title --}} *@
+                    <h5 class="card-title fw-bold mb-3">Web Development</h5>
+
+                    @* {{!-- STEP 11: Card description --}} *@
+                    <p class="card-text text-muted">
+                        We design and develop high-performance websites and web applications
+                        tailored to your unique business needs using the latest technologies.
+                    </p>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Some example text for this card.</p>
-                </div>
-                <div class="card-footer">
-                    Card footer
+
+                @* {{!-- STEP 12: Card footer with CTA button
+                     - bg-transparent border-0 removes default card footer styling
+                     - pb-4 adds padding at the bottom so the button doesn't hug the edge --}} *@
+                <div class="card-footer bg-transparent border-0 text-center pb-4">
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
+        @* {{!-- END Card 1 --}}
+
+
+        {{!-- ============================================
+             STEP 13: SERVICE CARD 2 — Cloud Infrastructure
+             Same column classes for consistent responsive behavior
+        ============================================ --}} *@
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center p-4">
+
+                    <div class="display-4 mb-3">☁️</div>
+
+                    <h5 class="card-title fw-bold mb-3">Cloud Infrastructure</h5>
+
+                    <p class="card-text text-muted">
+                        Scalable and secure cloud solutions built on AWS, Azure, and GCP.
+                        We help you migrate, optimize, and manage your cloud environment effortlessly.
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center pb-4">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        @* {{!-- END Card 2 --}}
+
+
+        {{!-- ============================================
+             STEP 14: SERVICE CARD 3 — Cybersecurity
+             On medium screens (col-md-6) this card drops to its own row
+             since only 2 fit — it will left-align by default with g-4
+        ============================================ --}} *@
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center p-4">
+
+                    <div class="display-4 mb-3">🔒</div>
+
+                    <h5 class="card-title fw-bold mb-3">Cybersecurity</h5>
+
+                    <p class="card-text text-muted">
+                        Protect your business with our comprehensive security audits, penetration testing,
+                        and 24/7 threat monitoring services.
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center pb-4">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        @* {{!-- END Card 3 --}} *@
+
     </div>
-</div>
+    @* {{!-- END .row --}} *@
+
+</section>
+@* {{!-- END Services Section --}} *@

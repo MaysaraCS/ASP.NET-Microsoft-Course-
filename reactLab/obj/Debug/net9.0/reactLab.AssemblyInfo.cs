@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("reactLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+277cf646a42b659093a0d013fc90440e74773baa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9954fc759f43511a6556de315ac451f7ea99655a")]
 [assembly: System.Reflection.AssemblyProductAttribute("reactLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("reactLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

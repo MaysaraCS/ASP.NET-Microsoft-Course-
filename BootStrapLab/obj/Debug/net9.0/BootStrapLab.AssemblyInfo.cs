@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BootStrapLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5469cf4d148d13533b40367e4cc57d280b699c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9954fc759f43511a6556de315ac451f7ea99655a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BootStrapLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BootStrapLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

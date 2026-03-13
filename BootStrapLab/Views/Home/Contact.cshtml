@@ -1,0 +1,351 @@
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+@* {{!-- ================================================
+STEP 1: PAGE HERO BANNER
+- Consistent with Home and About pages for unified site identity
+- bg-primary + text-white matches the navbar color theme
+- py-5 gives generous vertical breathing room
+================================================ --}} *@
+<section class="bg-primary text-white py-5 mb-5">
+    <div class="container text-center">
+
+        @* {{!-- STEP 2: Page title --}} *@
+        <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+
+        @* {{!-- STEP 3: Subtitle --}} *@
+        <p class="lead mb-0">
+            Have a question or project in mind? We'd love to hear from you.
+        </p>
+
+    </div>
+</section>
+@* {{!-- END Page Hero --}} *@
+
+
+@* {{!-- ================================================
+STEP 4: MAIN CONTENT AREA — Two-column layout
+- Left column (col-lg-8): the contact form
+- Right column (col-lg-4): contact info sidebar
+- On mobile both columns stack vertically (full width)
+- g-5 adds a large gutter between the two columns
+================================================ --}} *@
+<section class="container mb-5">
+    <div class="row g-5">
+
+
+        @* {{!-- ============================================
+        STEP 5: FORM COLUMN
+        - col-lg-8 = takes 8/12 width on large screens
+        - col-12 = full width on mobile (stacks above sidebar)
+        ============================================ --}} *@
+        <div class="col-lg-8 col-12">
+
+            <h2 class="fw-bold mb-4">Send Us a Message</h2>
+
+            @* {{!-- STEP 6: The contact form
+            - novalidate disables native browser validation so Bootstrap's
+            custom validation styles take over instead
+            - id="contactForm" is used by the JS validation script below --}} *@
+            <form id="contactForm" novalidate>
+
+                @* {{!-- ----------------------------------------
+                STEP 7: NAME + EMAIL — TWO COLUMN ROW
+                - row + g-3 creates a nested grid inside the form
+                - col-md-6 = side by side on medium screens (≥768px)
+                - col-12 = stacked full-width on mobile (<768px)       This is the key layout requirement from the brief
+                                                                   ---------------------------------------- --}} *@
+                <div class="row g-3 mb-3">
+
+                    @* {{!-- STEP 8: Full Name field --}} *@
+                    <div class="col-md-6 col-12">
+
+                        @* {{!-- for="..." must match the input's id for accessibility --}} *@
+                        <label for="fullName" class="form-label fw-semibold">
+                            Full Name <span class="text-danger">*</span>
+                        </label>
+
+                        @* {{!-- STEP 9: form-control gives Bootstrap's styled input appearance
+                    - required triggers validation when form is submitted
+                    - minlength prevents single-character names passing validation --}} *@
+                        <input type="text" class="form-control form-control-lg" id="fullName" name="fullName"
+                               placeholder="Jane Smith" required minlength="2" aria-describedby="fullNameFeedback" />
+
+                        @* {{!-- STEP 10: Validation feedback messages
+                    - valid-feedback shows when input passes validation (green)
+                    - invalid-feedback shows when input fails validation (red)
+                    - Bootstrap toggles visibility via .was-validated on the form --}} *@
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback" id="fullNameFeedback">
+                            Please enter your full name (at least 2 characters).
+                        </div>
+                    </div>
+                    @* {{!-- END Full Name --}} *@
+
+                    @* {{!-- STEP 11: Email Address field --}} *@
+                    <div class="col-md-6 col-12">
+                        <label for="emailAddress" class="form-label fw-semibold">
+                            Email Address <span class="text-danger">*</span>
+                        </label>
+
+                        @* {{!-- type="email" enables built-in email format validation --}} *@
+                        <input type="email" class="form-control form-control-lg" id="emailAddress" name="emailAddress"
+                               placeholder="jane@example.com" required aria-describedby="emailFeedback" />
+
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback" id="emailFeedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    @* {{!-- END Email Address --}} *@
+
+                </div>
+                @* {{!-- END two-column name/email row --}} *@
+
+
+                @* {{!-- ----------------------------------------
+            STEP 12: SUBJECT — full width single column
+            mb-3 keeps consistent vertical spacing between fields
+            ---------------------------------------- --}} *@
+                <div class="mb-3">
+                    <label for="subject" class="form-label fw-semibold">
+                        Subject <span class="text-danger">*</span>
+                    </label>
+
+                    @* {{!-- STEP 13: Select dropdown using form-select for Bootstrap styling --}} *@
+                    <select class="form-select form-select-lg" id="subject" name="subject" required
+                            aria-describedby="subjectFeedback">
+
+                        @* {{!-- value="" on the default option makes it fail "required" validation --}} *@
+                        <option value="" selected disabled>Select a subject...</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="webdev">Web Development</option>
+                        <option value="cloud">Cloud Infrastructure</option>
+                        <option value="security">Cybersecurity</option>
+                        <option value="support">Technical Support</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <div class="valid-feedback">Great choice!</div>
+                    <div class="invalid-feedback" id="subjectFeedback">
+                        Please select a subject for your message.
+                    </div>
+                </div>
+                @* {{!-- END Subject --}} *@
+
+
+                @* {{!-- ----------------------------------------
+            STEP 14: MESSAGE — full width textarea
+            ---------------------------------------- --}} *@
+                <div class="mb-4">
+                    <label for="message" class="form-label fw-semibold">
+                        Message <span class="text-danger">*</span>
+                    </label>
+
+                    @* {{!-- STEP 15: Textarea with rows="6" sets a comfortable default height
+                - minlength="20" ensures the user writes a meaningful message
+                - resize handled by the browser; Bootstrap handles the border/focus --}} *@
+                    <textarea class="form-control" id="message" name="message" rows="6"
+                              placeholder="Tell us about your project or question..." required minlength="20"
+                              aria-describedby="messageFeedback"></textarea>
+
+                    <div class="valid-feedback">Thanks for the details!</div>
+                    <div class="invalid-feedback" id="messageFeedback">
+                        Please enter a message (at least 20 characters).
+                    </div>
+                </div>
+                @* {{!-- END Message --}} *@
+
+
+                @* {{!-- ----------------------------------------
+            STEP 16: PRIVACY CHECKBOX
+            - form-check + form-check-input handles Bootstrap checkbox styling
+            - required means the user must tick it before submitting
+            ---------------------------------------- --}} *@
+                <div class="mb-4 form-check">
+                    <input type="checkbox" class="form-check-input" id="privacyCheck" required
+                           aria-describedby="privacyFeedback" />
+
+                    <label class="form-check-label" for="privacyCheck">
+                        I agree to the
+                        <a href="#" class="text-primary">Privacy Policy</a>
+                        and consent to being contacted.
+                        <span class="text-danger">*</span>
+                    </label>
+
+                    <div class="invalid-feedback" id="privacyFeedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+                @* {{!-- END Privacy Checkbox --}}
+
+
+            {{!-- ----------------------------------------
+            STEP 17: SUBMIT BUTTON
+            - btn-lg ensures minimum 44px touch target height (mobile requirement)
+            - w-100 makes it full width on mobile for easy tapping
+            - w-md-auto would reset to auto width on larger screens —
+            handled below with a d-grid d-md-block wrapper
+            ---------------------------------------- --}} *@
+
+                @* {{!-- STEP 18: d-grid makes the button full-width on mobile
+            d-md-block resets to inline on medium+ screens --}} *@
+                <div class="d-grid d-md-block">
+                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                        Send Message
+                    </button>
+                </div>
+                @* {{!-- END Submit Button --}} *@
+
+
+                @* {{!-- STEP 19: Success alert — hidden by default, shown by JS after submit --}} *@
+                <div id="successAlert" class="alert alert-success mt-4 d-none" role="alert">
+                    ✅ <strong>Message sent!</strong> We'll get back to you within 1 business day.
+                </div>
+
+            </form>
+            @* {{!-- END #contactForm --}} *@
+
+        </div>
+        @* {{!-- END Form Column --}} *@
+
+
+        @* {{!-- ============================================
+    STEP 20: CONTACT INFO SIDEBAR COLUMN
+    - col-lg-4 = takes 4/12 width alongside the form on large screens
+    - col-12 = full width below the form on mobile
+    - On mobile this sidebar naturally stacks BELOW the form
+    because it comes second in the HTML source order
+    ============================================ --}} *@
+        <div class="col-lg-4 col-12">
+
+            <h2 class="fw-bold mb-4">Get In Touch</h2>
+
+            @* {{!-- STEP 21: Contact info CARD — subtle background to distinguish from page --}} *@
+            <div class="card border-0 bg-light shadow-sm mb-4">
+                <div class="card-body p-4">
+
+                    @* {{!-- STEP 22: Each contact detail block
+                - d-flex aligns icon and text side by side
+                - align-items-start keeps icon top-aligned with multi-line text --}} *@
+
+                    @* {{!-- Office Address --}} *@
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="fs-4 me-3">📍</div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Office Address</h6>
+                            <p class="text-muted small mb-0">
+                                123 Innovation Drive<br />
+                                Suite 400<br />
+                                San Francisco, CA 94105
+                            </p>
+                        </div>
+                    </div>
+
+                    @* {{!-- Phone --}} *@
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="fs-4 me-3">📞</div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Phone</h6>
+                            @* {{!-- STEP 23: tel: href makes this tappable on mobile devices --}} *@
+                            <a href="tel:+14155550199" class="text-muted small text-decoration-none">
+                                +1 (415) 555-0199
+                            </a>
+                        </div>
+                    </div>
+
+                    @* {{!-- Email --}} *@
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="fs-4 me-3">✉️</div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Email</h6>
+                            {{!-- STEP 24: mailto: href opens the user's email client --}}
+                            <a href="mailto:hello@techflowsolutions.com" class="text-muted small text-decoration-none">
+                                hello@techflowsolutions.com
+                            </a>
+                        </div>
+                    </div>
+
+                    @* {{!-- Business Hours --}} *@
+                    <div class="d-flex align-items-start">
+                        <div class="fs-4 me-3">🕐</div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Business Hours</h6>
+                            <p class="text-muted small mb-0">
+                                Monday - Friday: 9am - 6pm PST<br />
+                                Saturday: 10am - 2pm PST<br />
+                                Sunday: Closed
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            @* {{!-- END contact info card --}} *@
+
+
+            @* {{!-- STEP 25: Response time badge — reassures users after form submission --}} *@
+            <div class="card border-0 bg-primary text-white shadow-sm">
+                <div class="card-body p-4 text-center">
+                    <div class="fs-2 mb-2">⚡</div>
+                    <h6 class="fw-bold mb-1">Fast Response Guaranteed</h6>
+                    <p class="small mb-0 opacity-75">
+                        We respond to all inquiries within 1 business day.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        @* {{!-- END Sidebar Column --}} *@
+
+
+    </div>
+    @* {{!-- END .row (form + sidebar) --}} *@
+
+</section>
+@* {{!-- END Main Content --}}
+
+
+{{!-- ================================================
+STEP 26: CLIENT-SIDE FORM VALIDATION SCRIPT
+- Bootstrap validation requires adding "was-validated" class to the
+form AFTER a submit attempt to trigger the green/red styling
+- This script prevents actual submission and shows the success alert
+- Place in the Scripts section so it loads after Bootstrap's JS
+================================================ --}} *@
+@section Scripts {
+    <script>
+            (function () {
+                'use strict';
+
+                // STEP 27: Grab the form and success alert by their ids
+                const form = document.getElementById('contactForm');
+                const successAlert = document.getElementById('successAlert');
+
+                // STEP 28: Listen for the submit event on the form
+                form.addEventListener('submit', function (event) {
+
+                    // STEP 29: Always prevent the default browser form submission
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    // STEP 30: Add was-validated to the form — this is what triggers
+                    // Bootstrap's green valid-feedback and red invalid-feedback visibility
+                    form.classList.add('was-validated');
+
+                    // STEP 31: checkValidity() returns true only if ALL required fields pass
+                    if (form.checkValidity()) {
+
+                        // STEP 32: Hide the form and show the success message
+                        form.classList.add('d-none');
+                        successAlert.classList.remove('d-none');
+
+                        // STEP 33: Reset form state for if user navigates back
+                        form.reset();
+                        form.classList.remove('was-validated');
+                    }
+                });
+            })();
+    </script>
+}
