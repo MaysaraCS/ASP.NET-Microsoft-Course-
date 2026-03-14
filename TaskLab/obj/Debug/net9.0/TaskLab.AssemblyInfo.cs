@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9954fc759f43511a6556de315ac451f7ea99655a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+329af8bfc8421d2228e6f18bf77b201126a161b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,44 @@
+﻿<div class="container mt-4">
+    <h2>📝 Task Manager
+        <!-- STEP 30: Live counter badge -->
+        <span class="badge bg-primary ms-2" id="taskCount">0</span>
+    </h2>
+
+    <!-- STEP 31: Add Task form — no action/method needed, JS handles everything -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Add New Task</h5>
+
+            <div class="mb-2">
+                <input type="text" id="taskName" class="form-control" placeholder="Enter task name..." />
+            </div>
+
+            <div class="mb-2">
+                <select id="priority" class="form-control">
+                    <option value="Low">Low Priority</option>
+                    <option value="Medium" selected>Medium Priority</option>
+                    <option value="High">High Priority</option>
+                </select>
+            </div>
+
+            <!-- STEP 32: onclick calls our JS function directly — no page reload -->
+            <button class="btn btn-primary" onclick="handleAddTask()">Add Task</button>
+
+            <!-- STEP 33: Feedback appears here after add attempts -->
+            <div id="formFeedback" class="alert mt-2" style="display:none;"></div>
+        </div>
+    </div>
+
+    <!-- STEP 34: Task list — filled dynamically by renderTasks() -->
+    <ul class="list-group" id="taskList"></ul>
+
+    <!-- STEP 35: Shown only when the list is empty -->
+    <p id="emptyMessage" class="text-muted mt-3" style="display:none;">
+        No tasks yet — add one above!
+    </p>
+
+    <button class="btn btn-outline-danger btn-sm mt-3" onclick="handleClearAll()">🗑 Clear All Tasks</button>
+</div>
+
+<!-- STEP 36: Load the JS file at the bottom so the DOM is ready first -->
+<script src="~/js/taskStorage.js"></script>
