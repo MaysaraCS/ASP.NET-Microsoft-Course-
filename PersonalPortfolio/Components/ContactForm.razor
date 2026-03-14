@@ -1,0 +1,109 @@
+@* Components/ContactForm.razor *@
+@using PersonalPortfolio.Models
+@using System.ComponentModel.DataAnnotations
+
+<div class="card border-0 shadow">
+    <div class="card-body p-4">
+        <h3 class="card-title mb-4">
+            <i class="fas fa-envelope me-2 text-primary"></i>Get In Touch
+        </h3>
+
+        @if (!string.IsNullOrEmpty(statusMessage))
+        {
+            <div class="alert @(isSuccess ? "alert-success" : "alert-danger") d-flex align-items-center" role="alert">
+                <i class="fas @(isSuccess ? "fa-check-circle" : "fa-exclamation-circle") me-2"></i>
+                @statusMessage
+            </div>
+        }
+
+        <EditForm Model="contactMessage" OnValidSubmit="HandleSubmit">
+            <DataAnnotationsValidator />
+
+            @* Name Field *@
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    <i class="fas fa-user me-1 text-muted"></i>Name
+                </label>
+                <InputText @bind-Value="contactMessage.Name"               class="form-control"             placeholder="Your full name" />
+                <ValidationMessage For="() => contactMessage.Name" class="text-danger small" />
+            </div>
+
+            @* Email Field *@
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    <i class="fas fa-envelope me-1 text-muted"></i>Email
+                </label>
+                <InputText @bind-Value="contactMessage.Email"           class="form-control"          placeholder="your@email.com" />
+                <ValidationMessage For="() => contactMessage.Email" class="text-danger small" />
+            </div>
+
+            @* Subject Field *@
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    <i class="fas fa-tag me-1 text-muted"></i>Subject
+                </label>
+                <InputText @bind-Value="contactMessage.Subject"        class="form-control"      placeholder="What's this about?" />
+                <ValidationMessage For="() => contactMessage.Subject" class="text-danger small" />
+            </div>
+
+            @* Message Field *@
+            <div class="mb-4">
+                <label class="form-label fw-semibold">
+                    <i class="fas fa-comment me-1 text-muted"></i>Message
+                </label>
+                <InputTextArea @bind-Value="contactMessage.Message"        class="form-control"           rows="5"
+                               placeholder="Tell me about your project or idea..." />
+                <ValidationMessage For="() => contactMessage.Message" class="text-danger small" />
+                <div class="text-end">
+                    <small class="text-muted">@(contactMessage.Message?.Length ?? 0) / 1000</small>
+                </div>
+            </div>
+
+            @* Submit Button with loading state *@
+            <button type="submit" class="btn btn-primary w-100" disabled="@isSubmitting">
+                @if (isSubmitting)
+                {
+                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                    <span>Sending...</span>
+                }
+                else
+                {
+                    <i class="fas fa-paper-plane me-2"></i>
+                    <span>Send Message</span>
+                }
+            </button>
+
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private ContactMessage contactMessage = new();
+    private bool isSubmitting = false;
+    private bool isSuccess = false;
+    private string statusMessage = string.Empty;
+
+    private async Task HandleSubmit()
+    {
+        isSubmitting = true;
+        statusMessage = string.Empty;
+
+        try
+        {
+            await Task.Delay(1000); // Simulate API call
+
+            isSuccess = true;
+            statusMessage = "Thank you! Your message has been sent successfully.";
+            contactMessage = new ContactMessage(); // Reset form
+        }
+        catch (Exception)
+        {
+            isSuccess = false;
+            statusMessage = "Sorry, there was an error sending your message.";
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+}

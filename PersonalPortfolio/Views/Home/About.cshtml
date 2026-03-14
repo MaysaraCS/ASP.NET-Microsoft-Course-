@@ -1,0 +1,113 @@
+@{
+    ViewData["Title"] = "About";
+}
+
+<!-- ── Bio Section ───────────────────────────────── -->
+<section class="section-padding pt-5 mt-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-4 text-center fade-in">
+                <img src="/images/profile-photo.jpg" alt="Your Name" class="img-fluid rounded-circle shadow mb-4"
+                     style="max-width:260px;"
+                     onerror="this.src='https://ui-avatars.com/api/?name=Your+Name&size=260&background=2c3e50&color=fff'" />
+                <!-- Social links -->
+                <div class="d-flex justify-content-center gap-3 mt-2">
+                    <a href="https://github.com/yourusername" target="_blank" class="footer-link fs-4">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="footer-link fs-4">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:your@email.com" class="footer-link fs-4">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="/files/cv.pdf" download class="footer-link fs-4" title="Download CV">
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-8 fade-in">
+                <h1 class="section-title mb-3">About <span>Me</span></h1>
+                <div class="section-divider ms-0"></div>
+                <p class="lead mb-3">
+                    I'm a passionate Full-Stack Developer specialising in the Microsoft ecosystem —
+                    building clean, scalable web applications with <strong>ASP.NET Core</strong>,
+                    <strong>Blazor</strong>, and <strong>SQL Server</strong>.
+                </p>
+                <p class="text-muted mb-4">
+                    I enjoy turning complex problems into simple, beautiful, and intuitive solutions.
+                    When I'm not coding, I'm exploring new technologies, contributing to open-source,
+                    or writing about software development.
+                </p>
+
+                <!-- Quick facts -->
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <span>Based in Saudi Arabia</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-graduation-cap text-primary"></i>
+                            <span>Computer Science Graduate</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-briefcase text-primary"></i>
+                            <span>Open to Opportunities</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-language text-primary"></i>
+                            <span>Arabic & English</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/Home/Projects" class="btn btn-primary me-2">
+                    <i class="fas fa-code me-1"></i>See My Work
+                </a>
+                <a href="/files/cv.pdf" download class="btn btn-outline-secondary">
+                    <i class="fas fa-download me-1"></i>Download CV
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Skills Section ────────────────────────────── -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="section-divider"></div>
+            <p class="text-muted">Technologies I work with daily</p>
+        </div>
+
+        @if (ViewBag.Skills != null)
+        {
+            <!-- Group skills by category -->
+            @foreach (var group in ((ViewBag.Skills as List<PersonalPortfolio.Models.Skill>) ?? new()).GroupBy(s =>
+                    s.Category))
+            {
+                <h5 class="text-uppercase fw-bold mb-3 mt-4" style="letter-spacing:.08em; color: var(--secondary-color);">
+                    @group.Key
+                </h5>
+                <div class="row g-3 mb-2">
+                    @foreach (var skill in group)
+                    {
+                        <div class="col-md-4 col-lg-3 fade-in">
+                            <component type="typeof(PersonalPortfolio.Components.SkillBadge)" render-mode="ServerPrerendered"
+                                       param-Skill="skill" />
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+</section>

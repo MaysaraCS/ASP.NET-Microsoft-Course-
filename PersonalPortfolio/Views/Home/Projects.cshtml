@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="container mt-5 pt-5">
+    <!-- Header -->
+    <div class="text-center mb-5 fade-in">
+        <h1 class="section-title">My <span>Projects</span></h1>
+        <div class="section-divider"></div>
+        <p class="lead text-muted">A collection of things I've built and learned from</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mb-4 fade-in" id="filterBar">
+        <button class="btn btn-primary btn-sm me-2 mb-2 filter-btn active" data-filter="all">All</button>
+        <button class="btn btn-outline-secondary btn-sm me-2 mb-2 filter-btn" data-filter="featured">⭐ Featured</button>
+    </div>
+
+    <!-- Project Grid -->
+    <div class="row" id="projectGrid">
+        @foreach (var project in (ViewBag.Projects as List<PersonalPortfolio.Models.Project>) ?? new())
+        {
+            <div class="project-item fade-in" data-featured="@project.IsFeatured.ToString().ToLower()">
+                <component type="typeof(PersonalPortfolio.Components.ProjectCard)" render-mode="ServerPrerendered"
+                           param-Project="project" />
+            </div>
+        }
+    </div>
+
+    <!-- Empty state -->
+    <div id="emptyState" class="text-center py-5 d-none">
+        <i class="fas fa-folder-open fa-3x text-muted mb-3"></i>
+        <p class="text-muted">No projects match this filter.</p>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+            // ── Filter logic ───────────────────────────────
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => {
+                        b.classList.remove('active', 'btn-primary');
+                        b.classList.add('btn-outline-secondary');
+                    });
+                    btn.classList.add('active', 'btn-primary');
+                    btn.classList.remove('btn-outline-secondary');
+
+                    const filter = btn.dataset.filter;
+                    const items = document.querySelectorAll('.project-item');
+                    let visible = 0;
+
+                    items.forEach(item => {
+                        const show = filter === 'all' || item.dataset.featured === 'true';
+                        item.style.display = show ? '' : 'none';
+                        if (show) visible++;
+                    });
+
+                    document.getElementById('emptyState').classList.toggle('d-none', visible > 0);
+                });
+            });
+    </script>
+}

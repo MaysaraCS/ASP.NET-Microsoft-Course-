@@ -95,3 +95,4 @@ D:\JOBS-2026\PlanB\ASP_Course\Labs\PersonalPortfolio\obj\Debug\net9.0\refint\Per
 D:\JOBS-2026\PlanB\ASP_Course\Labs\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.pdb
 D:\JOBS-2026\PlanB\ASP_Course\Labs\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.genruntimeconfig.cache
 D:\JOBS-2026\PlanB\ASP_Course\Labs\PersonalPortfolio\obj\Debug\net9.0\ref\PersonalPortfolio.dll
+D:\JOBS-2026\PlanB\ASP_Course\Labs\PersonalPortfolio\obj\Debug\net9.0\compressed\gazhvmk6b5-39sskxtxcl.gz

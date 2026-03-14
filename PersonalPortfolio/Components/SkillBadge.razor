@@ -1,0 +1,46 @@
+@* Components/SkillBadge.razor *@
+@using PersonalPortfolio.Models
+
+<div class="skill-badge card border-0 p-3 mb-3 shadow-sm h-100"
+     style="border-left: 4px solid @CategoryColor !important;">
+    <div class="d-flex align-items-center mb-2">
+        @if (!string.IsNullOrEmpty(Skill.IconClass))
+        {
+            <i class="@Skill.IconClass me-2 fs-4" style="color: @CategoryColor"></i>
+        }
+        <span class="fw-bold">@Skill.Name</span>
+        <span class="badge ms-auto" style="background-color: @CategoryColor">@Skill.Category</span>
+    </div>
+
+    @* Proficiency Stars (1–5) *@
+    <div class="d-flex align-items-center gap-1">
+        @for (int i = 1; i <= 5; i++)
+        {
+            var starIndex = i; // capture for lambda
+            if (starIndex <= Skill.ProficiencyLevel)
+            {
+                <i class="fas fa-star" style="color: @CategoryColor; font-size: 0.85rem;"></i>
+            }
+            else
+            {
+                <i class="far fa-star text-muted" style="font-size: 0.85rem;"></i>
+            }
+        }
+        <small class="text-muted ms-1">(@Skill.ProficiencyLevel/5)</small>
+    </div>
+</div>
+
+@code {
+    [Parameter] public Skill Skill { get; set; } = new();
+
+    // Different color per category
+    private string CategoryColor => Skill.Category?.ToLower() switch
+    {
+        "backend" => "#3b82f6", // blue
+        "frontend" => "#10b981", // green
+        "database" => "#f59e0b", // amber
+        "devops" => "#8b5cf6", // purple
+        "mobile" => "#ef4444", // red
+        _ => "#6b7280"    // gray (default)
+    };
+}
