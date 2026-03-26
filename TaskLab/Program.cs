@@ -39,6 +39,36 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+app.Use(async (context, next) =>
+{
+    var startTime = DateTime.UtcNow;
+    await next.Invoke();
+    var duration = DateTime.UtcNow - startTime;
+    Console.WriteLine($"Duration: {duration}");
+});
+app.Use(async (context, next) =>
+{
+    Console.WriteLine(context.Request.Path);
+    await next.Invoke();
+    Console.WriteLine(context.Response.StatusCode);
+});
+app.UseWhen(
+    context => context.Request.Method != "GET",
+    appBuilder => appBuilder.Use(async (context, next) =>
+    {
+        var extractedPassword = context.Request.Headers["X-Api-key"];
+        if (extractedPassword == "this is a bad password")
+        {
+            await next.Invoke();
+        }
+        else
+        {
+            context.Response.StatusCode = 401;
+            await context.Response.WriteAsync("Invalid Api Key");
+        }
+    })
+);
+
 app.MapGet("/api/tasks", async (TaskDbContext db) =>
 {
     return await db.Tasks.ToListAsync();
